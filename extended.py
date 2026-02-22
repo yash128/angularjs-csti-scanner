@@ -39,7 +39,10 @@ def main():
     args = require_arguments()
 
     options = Options()
-
+    options.identity.proxies = {
+        'http': 'http://127.0.0.1:8080',
+        'https': 'http://127.0.0.1:8080'
+    }
     options.scope.protocol_must_match = args.protocol_must_match
     options.scope.subdomain_must_match = not args.scan_other_subdomains
     options.scope.hostname_must_match = not args.scan_other_hostnames
